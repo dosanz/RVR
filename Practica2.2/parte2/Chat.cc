@@ -31,12 +31,10 @@ int ChatMessage::from_bin(char * bobj)
     memcpy(&type, tmp, sizeof(uint8_t));
     tmp += sizeof(uint8_t);
 
-    nick.resize(sizeof(char)*8);
-    memcpy(&nick[0], tmp, sizeof(char)*8);
+    memcpy(&nick, tmp, sizeof(char)*8);
     tmp += sizeof(char)*8;
 
-    message.resize(sizeof(char)*80);
-    memcpy(&message[0], tmp, sizeof(char)*80);
+    memcpy(&message, tmp, sizeof(char)*80);
     tmp += sizeof(char)*80;
 
     return 0;
